@@ -1,10 +1,4 @@
-<!-- 
- * The tables and game content below are taken from:
- *   Dungeon Crawl Classics RPG core rulebook
- *   Published by Goodman Games, ISBN 9780982860953.
- *   Game content under the Open Gaming License ver. 1.0 
--->
-<!--
+/*
  * This code is under the MIT License
  *
  * Copyright (c) 2016 Jaymes Winger
@@ -26,28 +20,34 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
--->
-<html>
-<body>
-<script src="js/util.js"></script>
-<script src="js/lvl0gen.js"></script>
+ */
 
-<h3>DCC RPG 0-level Character Generator</h3>
+function add(a, b) {
+  return a + b;
+}
 
-<input type="button" value="Generate" onclick="generate();" />
-<br /><br />
-<label><b>Output:</b></label><br />
-<textarea id="character-output" rows=40 cols=80 ></textarea><br />
-<input type="button" value="Select All" onclick="selectText();" />
+function sumList(list) {
+  return list.reduce(add, 0);
+}
 
-<br /><br />
-The tables and game content in this page are taken from:<br />
-<i>Dungeon Crawl Classics RPG core rulebook</i><br />
-Published by Goodman Games, ISBN 9780982860953.<br />
-Game content under the Open Gaming License ver. 1.0<br />
+function roll(sides, num = -1) {
+  if(num <= 0) {
+    return 1 + Math.floor(Math.random() * sides);
+  } else {
+    var result = [];
+    for(var i = 0; i < num; i++) {
+      result.push(1 + Math.floor(Math.random() * sides));
+    }
+    return result;
+  }
+}
 
-<script>
-  generate();
-</script>
-</body>
-</html>
+function plusMinus(val, zeroes=false) {
+  if(val < 0) {
+    return val.toString();
+  } else if(val == 0 && !zeroes) {
+    return "None";
+  } else {
+    return "+" + val.toString();
+  }
+}
