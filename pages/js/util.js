@@ -51,3 +51,7 @@ function plusMinus(val, zeroes=false) {
     return "+" + val.toString();
   }
 }
+
+function getEl(name) {
+  return document.getElementById(name);
+}
