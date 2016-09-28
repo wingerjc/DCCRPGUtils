@@ -22,51 +22,27 @@
  * SOFTWARE.
  */
 
-function add(a, b) {
-  return a + b;
-}
-
-function sumList(list) {
-  return list.reduce(add, 0);
-}
-
-function roll(sides, num = -1) {
-  if(num <= 0) {
-    return 1 + Math.floor(Math.random() * sides);
-  } else {
-    var result = [];
-    for(var i = 0; i < num; i++) {
-      result.push(1 + Math.floor(Math.random() * sides));
-    }
-    return result;
+function validateBonus() {
+  var bonusEl = getEl("roll-bonus");
+  if(!bonusEl.value.match(/^-?\d*$/)) {
+    bonusEl.value = '0';
   }
 }
 
-function rollString(rolls, bonus) {
-  if(rolls.length <= 1) {
-    var total = parseInt(rolls) + bonus;
-    return total + " (" + rolls + ")" + ((bonus != 0) ? (" + [" + bonus + "]") : "");
-  } else {
-    var total = sumList(rolls) + bonus;
-    var result = total + " (";
-    for(var i = 0; i < rolls.length; i++) {
-      result += ((i > 0) ? ", " : "") + rolls[i];
-    }
-    result += ")" + ((bonus != 0) ? (" + [" + bonus + "]") : "");
-    return result;
-  }
+function rollDice() {
+  var rollBonus = parseInt(getEl("roll-bonus").value);
+  var rollType = parseInt(getEl("roll-type").value);
+  var rollCount = parseInt(getEl("roll-count").value);
+  var dice = roll(rollType, rollCount);
+  var result = rollString(dice, rollBonus);
+  var outputEl = getEl("roll-output");
+  outputEl.innerHTML = result + "\n" + outputEl.innerHTML; 
 }
 
-function plusMinus(val, zeroes=false) {
-  if(val < 0) {
-    return val.toString();
-  } else if(val == 0 && !zeroes) {
-    return "None";
-  } else {
-    return "+" + val.toString();
-  }
+function selectText() {
+  getEl("roll-output").select();
 }
 
-function getEl(name) {
-  return document.getElementById(name);
+function clearText() {
+  getEl("roll-output").innerHTML = "";
 }
