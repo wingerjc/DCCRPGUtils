@@ -403,7 +403,7 @@ function generate() {
   // Basic ability scores and modifiers.
   char.abilities = {};
   abilities_table.forEach(function(val, index) {
-    var dice_roll = [roll(6), roll(6), roll(6)];
+    var dice_roll = roll(6,3);
     var dice_total = sumList(dice_roll);
     char.abilities[val] = { 
       ability_total: dice_total,
@@ -435,7 +435,7 @@ function generate() {
 
   // Starting money.
   char.money = {};
-  char.money.rolls = [roll(12), roll(12), roll(12), roll(12), roll(12)];
+  char.money.rolls = roll(12,5);
   char.money.value = sumList(char.money.rolls);
 
   // Equipment.
