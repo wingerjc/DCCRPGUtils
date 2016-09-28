@@ -1,10 +1,9 @@
-<!-- 
- * The tables and game content below are taken from:
+/* The tables and game content below are taken from:
  *   Dungeon Crawl Classics RPG core rulebook
  *   Published by Goodman Games, ISBN 9780982860953.
  *   Game content under the Open Gaming License ver. 1.0 
--->
-<!--
+ */
+/*
  * This code is under the MIT License
  *
  * Copyright (c) 2016 Jaymes Winger
@@ -26,28 +25,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
--->
-<html>
-  <body>
-    <script src="js/util.js"></script>
-    <script src="js/lvl0gen.js"></script>
+ */
 
-    <h3>DCC RPG 0-level Character Generator</h3>
-
-    <input type="button" value="Generate" onclick="generate();" />
-    <br /><br />
-    <label><b>Output:</b></label><br />
-    <textarea id="character-output" rows=40 cols=80 ></textarea><br />
-    <input type="button" value="Select All" onclick="selectText();" />
-
-    <br /><br />
-    The tables and game content in this page are taken from:<br />
-    <i>Dungeon Crawl Classics RPG core rulebook</i><br />
-    Published by Goodman Games, ISBN 9780982860953.<br />
-    Game content under the Open Gaming License ver. 1.0<br />
-
-    <script>
-      generate();
-    </script>
-  </body>
-</html>
+function foo() {
+}

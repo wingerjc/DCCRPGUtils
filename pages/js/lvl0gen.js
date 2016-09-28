@@ -322,7 +322,7 @@ function addLanguage(charList, raceList) {
 }
 
 function selectText() {
-  document.getElementById("character-output").select();
+  getEl("character-output").select();
 }
 
 function prettyPrint(char) {

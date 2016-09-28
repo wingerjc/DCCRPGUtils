@@ -42,6 +42,21 @@ function roll(sides, num = -1) {
   }
 }
 
+function rollString(rolls, bonus) {
+  if(rolls.length <= 1) {
+    var total = parseInt(rolls) + bonus;
+    return total + " (" + rolls + ")" + ((bonus != 0) ? (" + [" + bonus + "]") : "");
+  } else {
+    var total = sumList(rolls) + bonus;
+    var result = total + " (";
+    for(var i = 0; i < rolls.length; i++) {
+      result += ((i > 0) ? ", " : "") + rolls[i];
+    }
+    result += ")" + ((bonus != 0) ? (" + [" + bonus + "]") : "");
+    return result;
+  }
+}
+
 function plusMinus(val, zeroes=false) {
   if(val < 0) {
     return val.toString();
@@ -50,4 +65,8 @@ function plusMinus(val, zeroes=false) {
   } else {
     return "+" + val.toString();
   }
+}
+
+function getEl(name) {
+  return document.getElementById(name);
 }
